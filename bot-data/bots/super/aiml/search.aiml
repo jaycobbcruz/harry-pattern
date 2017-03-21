@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            Hello search!
+        </template>
+    </category>
+    <category>
+        <pattern>SHOW ME ACCOUNTS WHERE * IS *</pattern>
+        <template>
+            <search>
+                <elasticrequest>
+                    <index>bank</index>
+                    <type>account</type>
+                    <query>{"query": { "match": { "<star />": "<star index="2" />" } }}</query>
+                </elasticrequest>
+            </search>
+        </template>
+    </category>
+</aiml>

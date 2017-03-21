@@ -1,0 +1,8 @@
+url:http://www.example.org
+name:super
+email:email@example.com
+gender:female
+botmaster:Jaycobb Cruz
+organization:Yourcompany
+version:1.0.0
+

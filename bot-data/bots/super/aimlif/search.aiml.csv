@@ -1,0 +1,2 @@
+0,HELLO,*,*,Hello search!,search.aiml
+0,SHOW ME ACCOUNTS WHERE * IS *,*,*,<search>#Newline                <elasticrequest>#Newline                    <index>bank</index>#Newline                    <type>account</type>#Newline                    <query>{"query": { "match": { "<star/>": "<star index="2"/>" } }}</query>#Newline                </elasticrequest>#Newline            </search>,search.aiml
