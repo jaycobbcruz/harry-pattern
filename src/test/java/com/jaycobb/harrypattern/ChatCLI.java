@@ -8,7 +8,7 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class ChatCLI {
+class ChatCLI {
 
     public static void main(String[] a) {
         SearchContext.strategy = new ElasticsearchStrategy(getClient());

@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-public class ElasticsearchStrategy implements SearchStrategy {
+class ElasticsearchStrategy implements SearchStrategy {
 
     private static final Logger log = LoggerFactory.getLogger(ElasticsearchStrategy.class);
 

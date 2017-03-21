@@ -20,7 +20,7 @@ public class ElasticsearchStrategyTest {
 
     private static final Logger log = LoggerFactory.getLogger(ElasticsearchStrategyTest.class);
 
-    private BotClient botClient = new DefaultBotClient();
+    private final BotClient botClient = new DefaultBotClient();
 
     @Before
     public void setup() {

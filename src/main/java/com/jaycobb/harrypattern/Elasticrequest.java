@@ -3,7 +3,7 @@ package com.jaycobb.harrypattern;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Elasticrequest {
+class Elasticrequest {
 
     private String index;
     private String type;

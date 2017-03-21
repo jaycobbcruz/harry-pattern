@@ -25,12 +25,12 @@ public class Config {
         return prop.getProperty(key);
     }
 
-    public static String getProperty(final String key, final String defaulValue) {
+    public static String getProperty(final String key, final String defaultValue) {
         final String property = prop.getProperty(key);
         if (property != null) {
             return property;
         }
-        return defaulValue;
+        return defaultValue;
     }
 
 }
