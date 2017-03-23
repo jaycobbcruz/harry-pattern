@@ -23,13 +23,6 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.alicebot</groupId>
-            <artifactId>ab</artifactId>
-            <version>1.0</version>
-            <!-- scope>system</scope>
-            <systemPath>${basedir}/lib/ab-1.0.jar</systemPath -->
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
@@ -90,6 +83,20 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.reduls</groupId>
+            <artifactId>sanmoku</artifactId>
+            <version>0.0.5</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/sanmoku-0.0.5.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.reduls</groupId>
+            <artifactId>sanmoku-feature-ex</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/sanmoku-feature-ex-0.0.1.jar</systemPath>
         </dependency>
     </dependencies>
     <build>

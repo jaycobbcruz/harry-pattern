@@ -19,11 +19,6 @@ package org.alicebot.ab;
         Boston, MA  02110-1301, USA.
 */
 
-import org.alicebot.ab.AIMLProcessor;
-import org.alicebot.ab.AIMLProcessorExtension;
-import org.alicebot.ab.Contact;
-import org.alicebot.ab.ParseState;
-import org.alicebot.ab.Utilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;

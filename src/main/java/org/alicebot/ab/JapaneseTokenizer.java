@@ -2,7 +2,6 @@ package org.alicebot.ab;
 
 import net.reduls.sanmoku.Morpheme;
 import net.reduls.sanmoku.Tagger;
-import org.alicebot.ab.MagicBooleans;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
