@@ -15,6 +15,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -38,14 +39,14 @@ public class NetworkUtils {
 
     private static final HttpTransport httpTransport = new NetHttpTransport();
     private static final JsonFactory jsonFactory = new JacksonFactory();
-    public static HttpTransport getHttpTransport() {
+    private static HttpTransport getHttpTransport() {
         return httpTransport;
     }
-    public static JsonFactory getJsonFactory() {
+    private static JsonFactory getJsonFactory() {
         return jsonFactory;
     }
 
-    public static HttpRequestFactory getHttpRequestFactory() {
+    private static HttpRequestFactory getHttpRequestFactory() {
         return getHttpTransport().createRequestFactory(request -> request.setParser(new JsonObjectParser(getJsonFactory())));
     }
 
@@ -56,7 +57,7 @@ public class NetworkUtils {
                 for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
                     if (!inetAddress.isLoopbackAddress()) {
-                        String ipAddress =  inetAddress.getHostAddress().toString();
+                        String ipAddress = inetAddress.getHostAddress();
                         int p = ipAddress.indexOf("%");
                         if (p > 0) ipAddress = ipAddress.substring(0, p);
                         log.info("--> localIPAddress = {}", ipAddress);
@@ -76,24 +77,24 @@ public class NetworkUtils {
 	}
 
 
-	public static String spec(String host, String botid, String custid, String input) {
+	public static String spec(String host, String botid, String custid, String input) throws UnsupportedEncodingException {
 		log.trace("--> custid = {}", custid);
-		String spec = "";
+		String spec;
 		if (custid.equals("0"))      // get custid on first transaction with Pandorabots
 			spec =    String.format("%s?botid=%s&input=%s",
 									"http://" + host + "/pandora/talk-xml",
 									botid,
-									URLEncoder.encode(input));
+									URLEncoder.encode(input, "UTF-8"));
 		else spec =                 // re-use custid on each subsequent interaction
 				 String.format("%s?botid=%s&custid=%s&input=%s",
 							   "http://" + host + "/pandora/talk-xml",
 							   botid,
 							   custid,
-							   URLEncoder.encode(input));
+							   URLEncoder.encode(input, "UTF-8"));
 		return spec;
 	}
 
-    public static void trustEveryone() throws Exception {
+    private static void trustEveryone() {
         try {
             SSLContext ctx = SSLContext.getInstance("TLS");
             X509TrustManager tm = new X509TrustManager() {
